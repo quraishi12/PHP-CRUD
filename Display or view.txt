@@ -1,0 +1,56 @@
+<?php
+$Server = "localhost";
+$User = "root";
+$Password = "";
+$DB_Name = "student";
+
+// Create a connection
+$connection = mysqli_connect($Server, $User, $Password, $DB_Name);
+
+// Check connection
+if (!$connection) {
+    die("Connection Failed: " . mysqli_connect_error()); // Fixed typo in 'mysqli_connect_error'
+} else {
+    $query = "SELECT * FROM std_info";
+    $Res = mysqli_query($connection, $query);
+
+    if ($Res) {
+        echo "<h1>Student Information List</h1>";
+        echo "<table border='1'>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Section</th>
+                </tr>";
+
+        // Fetch each row and display data
+        while ($row = mysqli_fetch_assoc($Res)) {
+            echo "<tr>
+                    <td>" . htmlspecialchars($row['ID']) . "</td>
+                    <td>" . htmlspecialchars($row['Std_Name']) . "</td>
+                    <td>" . htmlspecialchars($row['Std_Email']) . "</td>
+                    <td>" . htmlspecialchars($row['Std_Section']) . "</td>
+                  </tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "Data not found!";
+    }
+}
+
+// Close the connection
+mysqli_close($connection);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Student Information</title>
+</head>
+<body>
+    <a href="Form.php">Add Student Information</a>
+</body>
+</html>
