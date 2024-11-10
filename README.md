@@ -64,23 +64,21 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 ?>
 
-Explanation
+##Explanation
 
-    Database Connection Variables:
+    ##Database Connection Variables:
         $servername: The name of the server where your database is hosted (commonly "localhost" for local development).
         $username: The username to connect to the database (often "root" for XAMPP).
         $password: The password for the database user (usually empty for XAMPP).
         $dbname: The name of the database you are connecting to (in this case, "logininfo").
 
-    Creating a Connection:
-    php
+##Creating a Connection:
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 This line establishes a connection to the MySQL database using the mysqli_connect function.
 
-Checking the Connection:
-php
+##Checking the Connection:
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -88,8 +86,7 @@ if (!$conn) {
 
 If the connection fails, the script terminates and displays an error message using mysqli_connect_error().
 
-Retrieving Form Data:
-php
+##Retrieving Form Data:
 
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -97,15 +94,13 @@ $class = $_POST['class'];
 
 This section retrieves the data submitted from a form using the POST method. It assumes that the form fields are named "name", "email", and "class".
 
-Preparing the SQL Statement:
-php
+#Preparing the SQL Statement:
 
 $sql = "INSERT INTO student_info (name, email, section) VALUES ('$name', '$email', '$class')";
 
 This line constructs an SQL query to insert the retrieved data into the student_info table. The values are enclosed in single quotes and interpolated into the query string.
 
-Executing the Query:
-php
+##Executing the Query:
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
@@ -115,8 +110,7 @@ if (mysqli_query($conn, $sql)) {
 
 The mysqli_query function executes the SQL query. If successful, it outputs a success message; if it fails, it displays the error message along with the SQL statement that caused the error.
 
-Closing the Connection:
-php
+##Closing the Connection:
 
 mysqli_close($conn);
 
