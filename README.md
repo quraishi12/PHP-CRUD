@@ -61,12 +61,42 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 ?>
 
-Step 1: Create connection Variable
+---
 
-$servername = "localhost"; // Because you're probably working locally (unless you're some kind of database wizard).
+## 📝 Explanation of Code Files
+
+#### Create connection Variable
+`$servername = "localhost"; // Because you're probably working locally (unless you're some kind of database wizard).
 $username = "root";       // The classic root user (unless you have more security concerns than a fortress).
 $password = "";           // Because we're not using passwords for XAMPP... but you should on production. Seriously.
-$dbname = "logininfo";    // Your very own database where all the magic happens (also, your data lives here).
+$dbname = "Student"; ` specifies that this document is an HTML5 document.
+
+
+#### HTML Tag
+`<html lang="en">` indicates the start of the HTML document and specifies the language as English.
+
+#### Head Section
+- `<head>` contains meta-information about the document.
+- `<meta charset="UTF-8">` sets the character encoding to UTF-8, allowing for a wide range of characters.
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">` makes the web page responsive, adjusting its layout based on the device's width.
+- `<title>Simple Form</title>` sets the title of the document that appears in the browser tab.
+
+#### Body Section
+- `<body>` contains the visible content of the web page.
+- `<h3>Submit Your Information</h3>` is a heading for the form.
+- `<form action="insert.php" method="post">` defines the form. The `action` attribute specifies where to send the form data upon submission, and `method="post"` indicates that the data should be sent using the POST method.
+
+#### Form Elements
+- Each `<label>` element is associated with an `<input>` element via the `for` attribute, which improves accessibility.
+- `<input>` elements of type "text" and "email" gather user input. The `required` attribute ensures that the user must fill these fields before submitting the form.
+- The final `<input>` is a submit button that sends the form data.
+
+---
+
+
+
+
+
 
 Step 2: Making the Connection
 
