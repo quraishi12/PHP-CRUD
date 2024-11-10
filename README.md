@@ -1,11 +1,9 @@
 <h1> PHP complete CRUD operations </h1>
-```markdown
-# Student Info Submission Script
-
+```
 ## HTML Form
 This HTML form allows users to submit their information. Below is the code for the form, followed by an explanation of its components:
 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,7 +98,7 @@ if (!$conn) {
 
 ### User Input
 The script retrieves the following data from an HTML form via POST:
-```php
+```
 $name = $_POST['name'];
 $email = $_POST['email'];
 $class = $_POST['class'];
@@ -108,13 +106,13 @@ $class = $_POST['class'];
 - **Description**: These lines fetch user input from the form fields `name`, `email`, and `class`.
 
 ### Prepare the SQL Statement
-```php
+```
 $sql = "INSERT INTO student_info (name, email, section) VALUES ('$name', '$email', '$class')";
 ```
 - **Description**: This line constructs an SQL `INSERT` statement to add a new record into the `student_info` table.
 
 ### Execute the Query
-```php
+```
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
 } else {
@@ -124,7 +122,7 @@ if (mysqli_query($conn, $sql)) {
 - **Description**: This block executes the SQL query. If the execution is successful, it confirms the creation of a new record. If it fails, it outputs an error message along with the SQL statement and error details.
 
 ### Close the Connection
-```php
+```
 mysqli_close($conn);
 ```
 - **Description**: This line closes the database connection, freeing up resources.
@@ -133,7 +131,7 @@ mysqli_close($conn);
 **Important**: This code is vulnerable to SQL injection. It is highly recommended to use prepared statements to enhance security.
 
 ## Complete PHP Code
-```php
+```
 <?php
 $servername = "localhost"; // Your server name
 $username = "root";         // Your database username (e.g., "root" for XAMPP)
