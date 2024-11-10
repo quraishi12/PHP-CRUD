@@ -28,8 +28,7 @@ Simple Create, Read, Update, Delete (CRUD) in PHP & MySQL
 - Each `<label>` element is associated with an `<input>` element via the `for` attribute, which improves accessibility.
 - `<input>` elements of type "text" and "email" gather user input. The `required` attribute ensures that the user must fill these fields before submitting the form.
 - The final `<input>` is a submit button that sends the form data.
-
-#### PHP MySQL Insert Example
+### 📝 `Insert.php` File
 
 This document provides an overview of a PHP script that connects to a MySQL database, retrieves form data, and inserts it into a specific table.
 
@@ -78,8 +77,8 @@ if (mysqli_query($conn, $sql)) {
 Finally, it closes the database connection:
 php
 mysqli_close($conn);
-```
-- *Description*: This line ensures that the database connection is properly closed, freeing up resources.
+
+*Description*: This line ensures that the database connection is properly closed, freeing up resources.
 
 
 
