@@ -1,8 +1,10 @@
-<h1> PHP CRUD </h1>
+<h1> PHP complete CRUD operations </h1>
 ```markdown
 # Student Info Submission Script
 
 ## HTML Form
+This HTML form allows users to submit their information. Below is the code for the form, followed by an explanation of its components:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +31,39 @@
 </html>
 ```
 
+### Explanation of the Form
+- **DOCTYPE and HTML Structure**: 
+  - `<!DOCTYPE html>` declares the document type and HTML version.
+  - `<html lang="en">` specifies the language of the document as English.
+
+- **Head Section**:
+  - `<head>` contains metadata about the document.
+  - `<meta charset="UTF-8">` sets the character encoding to UTF-8, supporting a wide range of characters.
+  - `<meta name="viewport" content="width=device-width, initial-scale=1.0">` makes the page responsive on different devices.
+  - `<title>Simple Form</title>` sets the title of the webpage displayed in the browser tab.
+
+- **Body Section**:
+  - `<body>` contains the content of the webpage.
+  - `<h3>Submit Your Information</h3>` is a heading that describes the form's purpose.
+  
+- **Form Element**:
+  - `<form action="insert.php" method="post">`: This defines the form. `action` specifies the URL (in this case, `insert.php`) to which the form data will be sent when submitted. `method="post"` indicates that the data will be sent using the POST method, which is suitable for sensitive data.
+  
+- **Input Fields**:
+  - `<label for="name">Name</label>`: This label is associated with the input field for the name. It improves accessibility by allowing screen readers to identify the input.
+  - `<input type="text" id="name" name="name" required>`: This input field accepts text input for the user's name. The `required` attribute ensures that the field must be filled before submission.
+  
+  - `<label for="email">Email</label>`: A label for the email input field.
+  - `<input type="email" id="email" name="email" required>`: This input field accepts email addresses. The input type `email` provides basic validation for email formats.
+  
+  - `<label for="section">Section</label>`: A label for the section input field.
+  - `<input type="text" id="section" name="class" required>`: This input field accepts text input for the user's section (or class). The `name` attribute is set to `class`, which will be used in the PHP script to retrieve this value.
+  
+- **Submit Button**:
+  - `<input type="submit" value="Submit" name="submit">`: This button submits the form data to the server. The `value` attribute sets the button's text.
+
 ## Overview
-This PHP script connects to a MySQL database and allows users to submit their information through a form. The data is then inserted into the `student_info` table.
+This PHP script connects to a MySQL database and allows users to submit their information through the above form. The data is then inserted into the `student_info` table.
 
 ## Features
 - Connects to a MySQL database.
