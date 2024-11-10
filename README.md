@@ -29,39 +29,9 @@ Simple Create, Read, Update, Delete (CRUD) in PHP & MySQL
 - `<input>` elements of type "text" and "email" gather user input. The `required` attribute ensures that the user must fill these fields before submitting the form.
 - The final `<input>` is a submit button that sends the form data.
 
----
-
-### 📝 `Insert.php` File
-
 #### PHP MySQL Insert Example
 
 This document provides an overview of a PHP script that connects to a MySQL database, retrieves form data, and inserts it into a specific table.
-
-#### Code Example:
-
-```
-<?php
-$servername = "localhost"; // Your server name
-$username = "root";         // Your database username (e.g., "root" for XAMPP)
-$password = "";             // Your database password (usually empty for XAMPP)
-$dbname = "logininfo";      // Your database name
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-$name = $_POST['name'];
-$email = $_POST['email'];
-$class = $_POST['class'];
-$sql = "INSERT INTO student_info (name, email, section) VALUES ('$name', '$email', '$class')";
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-mysqli_close($conn);
-?>
-
----
 
 ### Database Configuration
 
