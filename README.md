@@ -1,5 +1,4 @@
-Here's the complete `README.md` content with the HTML form code added at the top:
-
+<h1> PHP CRUD </h1>
 ```markdown
 # Student Info Submission Script
 
