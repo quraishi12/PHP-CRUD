@@ -108,7 +108,7 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 ?>
 ```
-
 ## Usage
 1. Ensure your database is set up with the correct credentials.
 2. Place the script on your server and access it via a web browser.
+3. Submit the form to add student information.
