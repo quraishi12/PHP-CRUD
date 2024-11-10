@@ -31,6 +31,30 @@ Simple Create, Read, Update, Delete (CRUD) in PHP & MySQL
 ### 📝 `Insert.php` File
 
 This document provides an overview of a PHP script that connects to a MySQL database, retrieves form data, and inserts it into a specific table.
+## PHP Code
+
+<?php
+$servername = "localhost";
+$username = "root";         
+$password = "";            
+$dbname = "logininfo";    
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$name = $_POST['name'];
+$email = $_POST['email'];
+$class = $_POST['class'];
+$sql = "INSERT INTO student_info (name, email, section) VALUES ('$name', '$email', '$class')";
+if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+?>
+```
+```
 
 ### Database Configuration
 
