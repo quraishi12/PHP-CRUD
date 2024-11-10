@@ -4,7 +4,7 @@ Simple Create, Read, Update, Delete (CRUD) in PHP &amp; MySQL
 <h1>Form.php File</h1>
 
 
-    <h2>Document Type Declaration:</h1>
+    Document Type Declaration:
     <!DOCTYPE html> specifies that this document is an HTML5 document.
 
     HTML Tag: <html lang="en">
