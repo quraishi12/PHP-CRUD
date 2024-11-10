@@ -4,9 +4,11 @@ Simple Create, Read, Update, Delete (CRUD) in PHP &amp; MySQL
 <h1>Form.php File</h1>
 
 
-    Document Type Declaration: <!DOCTYPE html> specifies that this document is an HTML5 document.
+    <h2>Document Type Declaration:</h1>
+    <!DOCTYPE html> specifies that this document is an HTML5 document.
 
-    HTML Tag: <html lang="en"> indicates the start of the HTML document and specifies the language as English.
+    HTML Tag: <html lang="en">
+    indicates the start of the HTML document and specifies the language as English.
 
     Head Section:
         <head> contains meta-information about the document.
