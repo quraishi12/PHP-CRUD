@@ -1,5 +1,8 @@
-<h1> PHP complete CRUD operations </h1>
+<h1> PHP complete crud operation </h1>
+
 ```
+# Student Info Submission Script
+
 ## HTML Form
 This HTML form allows users to submit their information. Below is the code for the form, followed by an explanation of its components:
 
@@ -68,11 +71,36 @@ This PHP script connects to a MySQL database and allows users to submit their in
 - Handles user input.
 - Inserts new student records into the database.
 
-## Code Breakdown
+## PHP Code for Inserting Data
+Once the form is submitted, the following PHP code processes the submitted data and inserts it into the database:
+```
+<?php
+$servername = "localhost"; // Your server name
+$username = "root";         // Your database username (e.g., "root" for XAMPP)
+$password = "";             // Your database password (usually empty for XAMPP)
+$dbname = "logininfo";      // Your database name
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$name = $_POST['name'];
+$email = $_POST['email'];
+$class = $_POST['class'];
+$sql = "INSERT INTO student_info (name, email, section) VALUES ('$name', '$email', '$class')";
+if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+?>
+```
 
-### Database Configuration
+### Code Breakdown
 
-#### Variables
+#### Database Configuration
+
+##### Variables
 - **Server Name**: `localhost`  
   (Typically used for local development)
 - **Username**: `root`  
@@ -82,14 +110,14 @@ This PHP script connects to a MySQL database and allows users to submit their in
 - **Database Name**: `logininfo`  
   (The name of your database)
 
-#### Create Connection
-```php
+##### Create Connection
+```
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 ```
 - **Description**: This line attempts to establish a connection to the MySQL database using the credentials defined above.
 
-#### Check Connection
-```php
+##### Check Connection
+```
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -129,42 +157,6 @@ mysqli_close($conn);
 
 ## Security Note
 **Important**: This code is vulnerable to SQL injection. It is highly recommended to use prepared statements to enhance security.
-
-## Complete PHP Code
-```
-<?php
-$servername = "localhost"; // Your server name
-$username = "root";         // Your database username (e.g., "root" for XAMPP)
-$password = "";             // Your database password (usually empty for XAMPP)
-$dbname = "logininfo";      // Your database name
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Retrieve form data (assuming POST method)
-$name = $_POST['name'];
-$email = $_POST['email'];
-$class = $_POST['class'];
-
-// Prepare the SQL statement
-$sql = "INSERT INTO student_info (name, email, section) VALUES ('$name', '$email', '$class')";
-
-// Execute the query
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
-// Close the connection
-mysqli_close($conn);
-?>
-```
 
 ## Usage
 1. Ensure your database is set up with the correct credentials.
