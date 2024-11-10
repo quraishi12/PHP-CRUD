@@ -6,7 +6,7 @@
 ## HTML Form
 This HTML form allows users to submit their information. Below is the code for the form, followed by an explanation of its components:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
