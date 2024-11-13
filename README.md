@@ -155,10 +155,135 @@ mysqli_close($conn);
 ```
 - **Description**: This line closes the database connection, freeing up resources.
 
-## Security Note
-**Important**: This code is vulnerable to SQL injection. It is highly recommended to use prepared statements to enhance security.
+<h1> Display.php file </h1>
+Sure! Below is the content formatted for a `README.md` file that explains the PHP code you provided.
 
-## Usage
-1. Ensure your database is set up with the correct credentials.
-2. Place the HTML form and the PHP script (`insert.php`) on your server.
-3. Access the form via a web browser and submit the information.
+```markdown
+# Student Information Display
+
+This PHP script connects to a MySQL database and retrieves student information from a specified table, then displays it in an HTML table format.
+
+## Prerequisites
+
+- PHP installed on your local server
+- MySQL database
+- A table named `std_info` with the following columns:
+  - `ID`
+  - `Std_Name`
+  - `Std_Email`
+  - `Std_Section`
+
+## Code Explanation
+
+### 1. Database Connection Setup
+
+```php
+$Server = "localhost";
+$User = "root";
+$Password = "";
+$DB_Name = "student";
+```
+
+- **Variables**: Stores the credentials needed to connect to the MySQL database.
+
+### 2. Creating a MySQL Connection
+
+```php
+$connection = mysqli_connect($Server, $User, $Password, $DB_Name);
+```
+
+- Attempts to establish a connection to the MySQL database using the specified credentials.
+
+### 3. Checking the Connection
+
+```php
+if (!$connection) {
+    die("Connection Failed: " . mysqli_connect_error());
+}
+```
+
+- If the connection fails, the script terminates and outputs an error message.
+
+### 4. Querying the Database
+
+```php
+$query = "SELECT * FROM std_info";
+$Res = mysqli_query($connection, $query);
+```
+
+- Defines a SQL query to select all records from the `std_info` table and executes it.
+
+### 5. Handling Query Results
+
+```php
+if ($Res) {
+    echo "<h1>Student Information List</h1>";
+    echo "<table border='1'>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Section</th>
+            </tr>";
+```
+
+- If the query is successful, it generates an HTML table to display the student information.
+
+### 6. Fetching and Displaying Data
+
+```php
+while ($row = mysqli_fetch_assoc($Res)) {
+    echo "<tr>
+            <td>" . htmlspecialchars($row['ID']) . "</td>
+            <td>" . htmlspecialchars($row['Std_Name']) . "</td>
+            <td>" . htmlspecialchars($row['Std_Email']) . "</td>
+            <td>" . htmlspecialchars($row['Std_Section']) . "</td>
+          </tr>";
+}
+```
+
+- Fetches each row of results as an associative array and displays it in the table, using `htmlspecialchars()` to prevent XSS.
+
+### 7. Finalizing the Table
+
+```php
+echo "</table>";
+```
+
+- Closes the HTML table after all data has been processed.
+
+### 8. Handling No Results
+
+```php
+} else {
+    echo "Data not found!";
+}
+```
+
+- Displays a message if there are no results from the query.
+
+### 9. Closing the Database Connection
+
+```php
+mysqli_close($connection);
+```
+
+- Closes the connection to the database.
+
+### 10. HTML Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Student Information</title>
+</head>
+<body>
+    <a href="Form.php">Add Student Information</a>
+</body>
+</html>
+```
+
+- A simple HTML document with a link for adding student information.
