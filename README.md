@@ -1,4 +1,5 @@
-```
+
+```markdown
 # Student Info Submission and Display Script
 
 This repository contains a PHP application that allows users to submit student information through an HTML form, insert it into a MySQL database, and display the submitted information.
